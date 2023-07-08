@@ -41,7 +41,15 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero_1 = int(self.txt_operador_a.get())
+        numero_2 = int(self.txt_operador_b.get())
+
+        resultado = numero_1 % numero_2
+
+        alert("El resto es", f"El resto de dividir {numero_1} por {numero_2} es: {resultado}")
+
+        #alert("El resto es", f"El resto de dividir {int(self.txt_operador_a.get())} por {int(self.txt_operador_b.get())} es {int(self.txt_operador_a.get()) % int(self.txt_operador_b.get())}")
+        # Funciona pero tiene 180 caracteres, por PEP (nerds) no convendria
         
         
     

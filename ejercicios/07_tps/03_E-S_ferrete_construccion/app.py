@@ -37,9 +37,8 @@ a la hora de realizar un alambrado permetral, se le solicita al usuario que ingr
     
 '''
 
-
 class App(customtkinter.CTk):
-
+    
     def __init__(self):
         super().__init__()
 
@@ -48,24 +47,45 @@ class App(customtkinter.CTk):
 
         self.label_1 = customtkinter.CTkLabel(master=self, text="Largo")
         self.label_1.grid(row=0, column=0, padx=20, pady=10)
-
+        
         self.txt_largo = customtkinter.CTkEntry(master=self)
         self.txt_largo.grid(row=0, column=1)
 
         self.label_2 = customtkinter.CTkLabel(master=self, text="Ancho")
         self.label_2.grid(row=1, column=0, padx=20, pady=10)
-
+        
         self.txt_ancho = customtkinter.CTkEntry(master=self)
         self.txt_ancho.grid(row=1, column=1)
-
-        self.btn_calcular = customtkinter.CTkButton(
-            master=self, text="CALCULAR", command=self.btn_calcular_on_click)
+       
+        self.btn_calcular = customtkinter.CTkButton(master=self, text="CALCULAR", command=self.btn_calcular_on_click)
         self.btn_calcular.grid(row=3, pady=10, columnspan=2, sticky="nsew")
+        
 
     def btn_calcular_on_click(self):
-        pass
+        largo = int(self.txt_largo.get())
+        ancho = int(self.txt_ancho.get())
+
+        m_cuadrado = largo * ancho
+        perimetro = largo * 2 + ancho * 2
+        quebracho_grueso_min = 4
+        quebracho_fino_min = perimetro // 12
+        varillas = perimetro // 2
+        quebracho_grueso_resta = perimetro // 250
+        quebracho_grueso = quebracho_grueso_min + quebracho_grueso_resta
+        quebracho_fino_resta = perimetro // 1500
+        quebracho_fino = quebracho_fino_min - quebracho_fino_resta
+        alambre_alta_resistencia = perimetro * 7
+
+        mensaje = (f"Su terreno tiene {m_cuadrado} metros cuadrados, con un perimetro de {perimetro} ." 
+              f"Contiene {quebracho_grueso} quebrachos gruesos, {quebracho_fino} quebrachos finos"
+              f". Ademas, {varillas} varillas, y {alambre_alta_resistencia} metros de alambres de alta resistencia. ")
+
+        alert("Cantidades!", mensaje)
 
 
+
+        
+    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Axel
+apellido: Cannavina
 ---
 Ejercicio: entrada_salida_04
 ---
@@ -31,12 +31,15 @@ class App(customtkinter.CTk):
         
         self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
+        
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
-    
+        apellido = prompt(title="Apellido", prompt="¿Cual es tu apellido?")
+        mensaje = f"Apellido: {apellido}"
+        self.txt_nombre.delete(0,200)
+        self.txt_nombre.insert(0, mensaje)
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

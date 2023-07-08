@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Axel
+apellido: Cannavina
 ---
 Ejercicio: entrada_salida_02
 ---
@@ -28,7 +28,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        dato = prompt("Entrada de datos", "Ingrese un dato:")
+        alert(message="El dato ingresado es: " + dato, title="Dato ingresado!")
         
         
     
