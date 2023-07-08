@@ -40,11 +40,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        numero = int(self.txt_importe.get())
-        incremento = int(self.txt_descuento.get())
+        numero = float(self.txt_importe.get())
+        incremento = float(self.txt_descuento.get())
         resultado = numero - (numero * incremento/100)
 
-        alert("Descuento aplicado!", f"Su precio final es de {resultado}")
+        alert("Descuento aplicado!", f"Su precio final es de {resultado}$")
         
     
 if __name__ == "__main__":
