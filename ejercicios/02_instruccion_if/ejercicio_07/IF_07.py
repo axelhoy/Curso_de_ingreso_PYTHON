@@ -47,9 +47,7 @@ class App(customtkinter.CTk):
         nativo = (self.combobox_tipo.get() == "NATIVO")
         naturalizado = (self.combobox_tipo.get() == "NATURALIZADO")
 
-        if (edad >= 16 and nativo):
-            alert("Habilitado", "Usted esta habilitado a votar!")
-        elif (edad >= 18 and naturalizado):
+        if (edad > 15 and nativo) or (edad > 17 and naturalizado):
             alert("Habilitado", "Usted esta habilitado a votar!")
         else:
             alert("Deshabilitado", "Usted NO esta habilitado a votar!")
