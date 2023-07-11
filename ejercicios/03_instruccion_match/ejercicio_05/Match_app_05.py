@@ -33,7 +33,7 @@ class App(customtkinter.CTk):
         hora = float(self.txt_hora.get())
 
         match(hora):
-            case 7 | 11:
+            case 7 | 8 | 9 | 10 | 11:
                 alert("Atención", "Es de mañana")
     
     

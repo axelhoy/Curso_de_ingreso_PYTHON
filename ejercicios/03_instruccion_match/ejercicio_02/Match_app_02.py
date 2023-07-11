@@ -40,11 +40,11 @@ class App(customtkinter.CTk):
         
         match(mes):
             case "Julio" | "Agosto":
-                alert("Atencion!", "¡Abrigate que hace frío!")
+                alert("Atencion!", "¡Abrigate que hace frío")
             case "Enero" | "Febrero" | "Marzo" | "Abril" | "Mayo" | "Junio":
                 alert("Atencion!", "Falta para el invierno..")
-            case "Agosto" | "Septiembre" | "Octubre" | "Noviembre" | "Diciembre":
-                alert("Atencion!", "¡Ya pasamso frío, ahora calor!")
+            case _:
+                alert("Atencion!", "¡Ya pasamos frío, ahora calor!")
 
     
     
