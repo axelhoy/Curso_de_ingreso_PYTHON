@@ -37,9 +37,10 @@ class App(customtkinter.CTk):
         
         match(destinos):
             case "Bariloche" | "Ushuaia":
-                alert("Atencion!", "Predomina el frio en la mayoria de sus estaciones")
+                mensaje = "frío"
             case _:
-                alert("Atencion!", "Predomina el calor en la mayoria de sus estaciones")
+                mensaje = "calor"
+        alert("Informe", f"Predomina el {mensaje} en la mayoria de las estaciones del año")
     
     
 if __name__ == "__main__":

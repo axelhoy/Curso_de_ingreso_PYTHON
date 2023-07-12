@@ -49,11 +49,12 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):
         apellido = self.txt_apellido.get()
-        edad = self.txt_edad.get()
+        edad = int(self.txt_edad.get())
         tipo = self.combobox_tipo.get()
-        legajo = self.txt_legajo.get()
-        
-        alert(title="Alert", message="\nNombre: " + str(apellido) + " \nEdad: " + str(edad) + "\nEstado Civil: " + str(tipo) + "\nLegajo: " + str(legajo))
+        legajo = int(self.txt_legajo.get())
+
+        while 17 > edad > 90 and legajo > 999:
+            alert(title="Alert", message="\nNombre: " + str(apellido) + " \nEdad: " + str(edad) + "\nEstado Civil: " + str(tipo) + "\nLegajo: " + str(legajo))
 
         
         

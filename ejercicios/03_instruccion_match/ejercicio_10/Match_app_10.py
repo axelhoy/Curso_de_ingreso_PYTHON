@@ -49,20 +49,12 @@ class App(customtkinter.CTk):
         estaciones = self.combobox_estaciones.get()
 
         match(estaciones, destinos):
-            case("Invierno", ('Mar del plata' | 'Cataratas' | 'Cordoba')):
-                alert("Atencion!", "No se viaja")
-            case("Invierno", "Bariloche"):
-                alert("Atencion!", "Se viaja")
-            case("Verano", ('Mar del plata' | 'Cataratas')):
-                alert("Atencion!", "Se viaja")
-            case("Verano", ('Bariloche' | 'Cordoba')):
-                alert("Atencion!", "No se viaja")
-            case("Otoño"):
-                alert("Atencion!", "Se viaja")
-            case("Primavera", "Bariloche"):
-                alert("Atencion", "No se viaja")
+            case("Invierno", ('Mar del plata' | 'Cataratas' | 'Cordoba')) | ("Primavera", "Bariloche") | ("Verano", ('Bariloche' | 'Cordoba')):
+                mensaje = "No se viaja"
             case _:
-                alert("Atencion", "Se viaja")
+                mensaje = "Se viaja"
+
+        alert("Atencion!", mensaje)
             
     
 if __name__ == "__main__":

@@ -58,25 +58,54 @@ class App(customtkinter.CTk):
         tarifa = 15000
         destinos = self.combobox_destino.get()
         estaciones = self.combobox_estaciones.get()
-
-        match(estaciones, destinos):
+       
+        match(estaciones, destinos):                                              # otra forma!
             case("Invierno", "Bariloche"):
-                alert("Total del viaje", f"Su precio final es de {tarifa*1.2}$")
+                tarifa = tarifa*1.2
             case("Invierno", ('Cataratas' | 'Cordoba')):
-                alert("Total del viaje", f"Su precio final es de {tarifa*.9}$")
+                tarifa = tarifa*.9
             case("Invierno", 'Mar del plata'):
-                alert("Total del viaje", f"Su precio final es de {tarifa*.8}$")
+                tarifa = tarifa*.8
             case("Verano", "Bariloche"):
-                alert("Total del viaje", f"Su precio final es de {tarifa*.8}$")
+                tarifa = tarifa*.8
             case("Verano", ('Cataratas' | 'Cordoba')):
-                alert("Total del viaje", f"Su precio final es de {tarifa*1.1}$")
+                tarifa = tarifa*1.1
             case("Verano", 'Mar del plata'):
-                alert("Total del viaje", f"Su precio final es de {tarifa*1.2}$")
+                tarifa = tarifa*1.2
             case(("Otoño" | "Primavera"), "Cordoba"):
-                alert("Total del viaje", f"Su precio final es de {tarifa}$")
+                tarifa = tarifa
             case _:
-                alert("Total del viaje", f"Su precio final es de {tarifa*1.1}$")
+                tarifa = tarifa*1.1
 
+        alert("Total del viaje", f"Su precio final es de {tarifa}$")
+
+        
+
+        # match(estaciones, destinos):                                                  # otra forma!
+        #     case("Invierno", "Bariloche"):
+        #         desc_au_mento = 20
+        #         tarifa = abs(tarifa + (tarifa*desc_au_mento/100))
+        #     case("Invierno", ('Cataratas' | 'Cordoba')):
+        #         desc_au_mento = 10
+        #         tarifa = abs(tarifa - (tarifa*desc_au_mento/100))
+        #     case("Invierno", 'Mar del plata'):
+        #         desc_au_mento = 20
+        #         tarifa = abs(tarifa - (tarifa*desc_au_mento/100))
+        #     case("Verano", "Bariloche"):
+        #         desc_au_mento = 10
+        #         tarifa = abs(tarifa - (tarifa*desc_au_mento/100))
+        #     case("Verano", ('Cataratas' | 'Cordoba')):
+        #         desc_au_mento = 10
+        #         tarifa = abs(tarifa + (tarifa*desc_au_mento/100))
+        #     case("Verano", 'Mar del plata'):
+        #         desc_au_mento = 20
+        #         tarifa = abs(tarifa + (tarifa*desc_au_mento/100))
+        #     case(("Otoño" | "Primavera"), "Cordoba"):
+        #         tarifa = tarifa
+        #     case _:
+        #         tarifa = tarifa*1.1
+
+        # alert("Total del viaje", f"Su precio final es de {tarifa}$")
             
     
 if __name__ == "__main__":
