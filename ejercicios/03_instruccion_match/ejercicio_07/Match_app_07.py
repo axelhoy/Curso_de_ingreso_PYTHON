@@ -6,6 +6,9 @@ import customtkinter
 
 
 '''
+nombre: Axel
+apellido: Cannavina
+ 
 Enunciado:
 Obtener el destino seleccionado en el combobox_destino, luego al presionar el 
 botón ‘Informar’ indicar el punto cardinal de nuestro país donde se encuentra: 

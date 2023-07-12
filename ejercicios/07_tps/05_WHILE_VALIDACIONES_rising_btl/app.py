@@ -53,7 +53,7 @@ class App(customtkinter.CTk):
         tipo = self.combobox_tipo.get()
         legajo = self.txt_legajo.get()
         
-        alert(title="Alert", message="\nNombre " + str(apellido) + " \nEdad " + str(edad) + "\nEstado Civil " + str(tipo) + "\nLegajo " + str(legajo))
+        alert(title="Alert", message="\nNombre: " + str(apellido) + " \nEdad: " + str(edad) + "\nEstado Civil: " + str(tipo) + "\nLegajo: " + str(legajo))
 
         
         

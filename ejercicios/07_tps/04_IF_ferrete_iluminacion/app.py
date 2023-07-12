@@ -3,6 +3,7 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
+import math
 
 '''
 Todas las lámparas están  al mismo precio de $800 pesos final.
@@ -41,35 +42,46 @@ class App(customtkinter.CTk):
         empresa = self.combobox_marca.get()
         cantidad = int(self.combobox_cantidad.get())
         precio = (800 * cantidad)
-        descuento = 1
+        descuento = 0
 
-        if cantidad >= 6:
-            descuento = .5
-        elif cantidad == 5:
-            if empresa == "ArgentinaLuz":
-                descuento = .6
+        if cantidad >= 6:                                                   #A
+            descuento = 50
+
+
+
+        elif cantidad == 5:                                                 #B
+            if empresa == "ArgentinaLuz": 
+                descuento = 40
             else:
-                descuento = .7
+                descuento = 30
+
+
+
         elif cantidad == 4:
-            if empresa == "ArgentinaLuz" or empresa == "FelipeLamparas":
-                descuento = .75
+            if empresa == "ArgentinaLuz" or empresa == "FelipeLamparas":    #C
+                descuento = 25
             else:
-                descuento = .8
-        elif cantidad == 3:
-            if empresa == "ArgentinaLuz":
-                descuento = .85
-            elif empresa == "FelipeLamparas":
-                descuento = .9
-            else:
-                descuento = .95
+                descuento = 20
 
-        precio_final = precio * descuento
+
+                
+        elif cantidad == 3:                                                #D
+            if empresa == "ArgentinaLuz":
+                descuento = 15
+            elif empresa == "FelipeLamparas":
+                descuento = 10
+            else:
+                descuento = 5
+
+
+
+        precio_final = abs((precio * descuento / 100) - precio)                             #E 
 
 
         if (precio_final > 4000):
-            precio_final = precio_final * .95
-
-        alert("Ticket", f"Su precio final es de {precio_final}")
+            alert("Ticket", f"Su precio final es de {precio_final * .95}, con un descuento del {descuento + 5} %!")
+        else:
+            alert("Ticket", f"Su precio final es de {precio_final}, con un descuento del {descuento} %!")
 
 if __name__ == "__main__":
     app = App()

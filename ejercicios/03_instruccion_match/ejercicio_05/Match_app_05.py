@@ -6,6 +6,9 @@ import customtkinter
 
 
 '''
+nombre: Axel
+apellido: Cannavina
+ 
 Enunciado:
 Obtener la hora ingresada en el txt_hora. Al presionar el botón ‘Informar’ 
 mostrar mediante alert el mensaje ‘Es de mañana’ 
