@@ -55,6 +55,8 @@ class App(customtkinter.CTk):
 
         while 17 > edad > 90 and legajo > 999:
             alert(title="Alert", message="\nNombre: " + str(apellido) + " \nEdad: " + str(edad) + "\nEstado Civil: " + str(tipo) + "\nLegajo: " + str(legajo))
+        else:
+            alert("Error!", "Verifique los datos e ingrese nuevamente.")
 
         
         

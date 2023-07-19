@@ -5,6 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+nombre: Axel
+apellido: Cannavina
+ 
 Enunciado:
 Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el usuario quiera, 
 hasta que presione el botón Cancelar (en el prompt) o el usuario ingrese cero. 
@@ -32,7 +35,29 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        numero_positivo = 0
+        numero_negativo = 1
+
+        while True:
+            numero = prompt("Numero ingresado", "Ingrese un número (Presione el boton cancelar para finalizar) ")
+
+            if numero == None:
+                break
+            if numero.isalpha():
+                alert("Error!", "Caracter invalido. Intente nuevamente.")
+            else:
+                # numero = int(numero) Si uso esto no funciona porque isdigit no pasa a negativos, tengo que usar un lstrip
+                if numero.isdigit() or int(numero) > 0:     
+                    numero = int(numero)
+                    numero_positivo += numero
+                elif numero.isdigit() or int(numero) < 0:
+                    numero_negativo *= int(numero)
+
+
+        self.txt_suma_acumulada.delete(0, "end")
+        self.txt_suma_acumulada.insert("end", numero_positivo)
+        self.txt_producto.delete(0, "end")
+        self.txt_producto.insert("end", numero_negativo)
 
     
 if __name__ == "__main__":

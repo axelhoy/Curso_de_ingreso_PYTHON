@@ -5,6 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+nombre: Axel
+apellido: Cannavina
+ 
 Enunciado:
 Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el usuario 
 quiera hasta que presione el botón Cancelar (en el prompt). 
@@ -33,9 +36,42 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        numero_positivo = 0
+        numero_negativo = 0
+        contador_positivo = 0
+        contador_negativo = 0
+        ceros = 0
 
+        while True:
+            numero = prompt("Numero ingresado", "Ingrese un número (Presione el boton cancelar para finalizar) ")
+
+            if numero == None:
+                break
+            if numero.isalpha() or numero == "":
+                alert("Error!", "Caracter invalido. Intente nuevamente.")
+            else:
+                numero = int(numero)        
+                if numero > 0:     
+                    numero_positivo += numero
+                    contador_positivo += 1
+                elif numero < 0:
+                    numero_negativo -= numero
+                    contador_negativo += 1
+        
+        for digit in str(numero_positivo):
+            if digit == "0":
+                ceros += 1
+        for digit in str(numero_negativo):
+            if digit == "0":
+                ceros += 1
+        
+        diferencia = abs(contador_positivo - contador_negativo)
     
+        alert("UTN", f"Suma acumulada de positivos: {numero_positivo}\nSuma acumulada de negativos: {-(numero_negativo)} \n"
+              f"Numeros negativos ingresados: {contador_negativo} \nNumeros positivos ingresados: {contador_positivo} \n"
+              f"Cantidad de ceros de ambos numeros: {ceros} \nDiferencia de numeros ingresados: {diferencia}")
+        
+             # ! puse un "-" aca ya que isdigit() no toma negativos, y se simplificaba mucho el codigo de esa manera, si no era con un lstrip
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

@@ -5,6 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+nombre: Axel
+apellido: Cannavina
+ 
 Enunciado:
 Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el usuario quiera 
 hasta que presione el botón Cancelar (en el prompt). 
@@ -33,24 +36,31 @@ class App(customtkinter.CTk):
 
     def btn_comenzar_ingreso_on_click(self):
 
-        flag_primera_vez = True
-        prompt_result = ""
+        opcion = True
+        maximo = None
+        minimo = None
         
-        while prompt_result != None:
-            prompt_result = prompt(title="Prompt", prompt="Ingrese un número")
-            if prompt_result != None: 
-                numero_ingresado = int(prompt_result)
-                
-                if  numero_ingresado < minimo or flag_primera_vez == True:
-                    minimo = numero_ingresado
-                if  numero_ingresado > maximo or flag_primera_vez == True:
-                    maximo = numero_ingresado
-                    flag_primera_vez = False
-                            
-        self.txt_minimo.delete(0,100)
-        self.txt_minimo.insert(0, minimo)
-        self.txt_maximo.delete(0,100)
-        self.txt_maximo.insert(0, maximo)
+        while opcion:
+            numero = prompt("Datos", "Ingrese un numero")
+
+            if numero == None:
+                break
+
+            if numero.isalpha() or numero == "":
+                alert("Error!", "Ingrese un caracter valido")
+                continue
+
+            numero = int(numero)
+            if maximo is None or maximo < numero:
+                maximo = numero
+            if minimo is None or minimo > numero:
+                minimo = numero
+
+
+        self.txt_minimo.delete(0, "end")
+        self.txt_minimo.insert("end", f"Minimo: {str(minimo)}")
+        self.txt_maximo.delete(0, "end")
+        self.txt_maximo.insert("end", f"Maximo: {str(maximo)}")
 
 
     

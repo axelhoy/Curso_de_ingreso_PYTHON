@@ -44,7 +44,7 @@ class App(customtkinter.CTk):
             case "Ushuaia":
                 mensaje = "Se encuentra en el Sur"
 
-        alert("Atención!", mensaje)
+        alert("Atención!", f"{mensaje} del país.")
     
     
 if __name__ == "__main__":
